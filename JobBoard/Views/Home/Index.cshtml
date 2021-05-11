@@ -2,7 +2,21 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <h1>Jobs</h1>
+    @if(Model.Count == 0)
+    {
+        <p>There are no jobs in the list</p>
+    }
+
+    <a href="/jobs/new">Add new job listing!</a>
+
+    <ul>
+    @foreach(JobPostings job in Model)
+    {
+        
+       <li>@job.Title | @job.Description | @job.ContactInfo</li>
+
+    
+    }
+    </ul>
+

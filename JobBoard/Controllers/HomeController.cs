@@ -18,9 +18,24 @@ namespace JobBoard.Controllers
             _logger = logger;
         }
 
-        public IActionResult Index()
+        [HttpGet("/")]
+        public ActionResult Index()
+        {
+            List<JobPostings> allJobPostings = JobPostings.GetAll();
+            return View(allJobPostings);
+        }
+
+        [HttpGet("/jobs/new")]
+        public ActionResult CreateForm()
         {
             return View();
+        }
+
+        [HttpPost("/jobs")]
+        public ActionResult CreateJobPost(string title, string description, string contactInfo)
+        {
+            JobPostings job = new JobPostings(title, description, contactInfo);
+            return RedirectToAction("Index");
         }
 
 
