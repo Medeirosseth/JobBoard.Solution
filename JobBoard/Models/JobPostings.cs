@@ -7,9 +7,7 @@ namespace JobBoard.Models
     {
         public string Title { get; set; }
         public string Description { get; set; }
-
         public string ContactInfo { get; set; }
-
 
         private static List<JobPostings> _jobOpenings = new List<JobPostings> {};
 

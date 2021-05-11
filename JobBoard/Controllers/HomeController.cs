@@ -18,7 +18,7 @@ namespace JobBoard.Controllers
             _logger = logger;
         }
 
-        [HttpGet("/")]
+        [HttpGet("/jobs")]
         public ActionResult Index()
         {
             List<JobPostings> allJobPostings = JobPostings.GetAll();
